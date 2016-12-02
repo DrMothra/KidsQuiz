@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Tate Visualisation</title>
+
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/dat.gui.js"></script>
+    <script type="text/javascript" src="js/three81.js"></script>
+    <script type="text/javascript" src="js/TrackballControls.js"></script>
+    <script type="text/javascript" src="js/detector.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/stats.js"></script>
+    <script type="text/javascript" src="js/spriteManager.js?v=0.2"></script>
+    <script type="text/javascript" src="js/circleSpriteManager.js?v=0.1"></script>
+    <script type="text/javascript" src="js/tateDatav3.js?v=0.1"></script>
+    <script type="text/javascript" src="js/shapes.js?v=0.1"></script>
+    <script type="text/javascript" src="js/lines.js?v=0.3"></script>
+
+    <script src="dist/main.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=0.1">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css?v=0.1">
+    <link href="css/tateStyles.css?v=0.5" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div id="Stats-output">
+</div>
+
+<div id="WebGL-output">
+
+</div>
+
+<div id="nodeInfo" class="infoPanel noDisplay">
+    <div>
+        <span>Name : </span><span id="infoName">Artwork 1</span>
+    </div>
+    <div>
+        <span>Year : </span><span id="infoYear">1999</span>
+    </div>
+    <div>
+        <span>Artist : </span><span id="infoArtist">A.N. Artist</span>
+    </div>
+    <div>
+        <button id="infoOK" class="infoButton">OK</button>
+    </div>
+
+</div>
+
+<div id="navigation" class="infoPanel">
+    <div class="centred">
+        <div>
+            <button id="moveUp" type="button"><img src="images/arrowUp.png"></button>
+        </div>
+        <div>
+            <button id="moveLeft" type="button"><img src="images/arrowLeft.png"></button>
+            <button id="moveHome" type="button"><img src="images/home.png"></button>
+            <button id="moveRight" type="button"><img src="images/arrowRight.png"></button>
+        </div>
+        <div>
+            <button id="moveDown" type="button"><img src="images/arrowDown.png"></button>
+        </div>
+    </div>
+</div>
+
+<div id="camera" class="infoPanel">
+    <div class="centred">
+        <div>
+            <button id="camTop" type="button"><img src="images/camTop.png"></button>
+        </div>
+        <div>
+            <button id="camLeft" type="button"><img src="images/camLeft.png"></button>
+            <button id="camHome" type="button"><img src="images/camera.png"></button>
+            <button id="camRight" type="button"><img src="images/camRight.png"></button>
+        </div>
+        <div>
+            <button id="camBottom" type="button"><img src="images/camBottom.png"></button>
+        </div>
+    </div>
+</div>
+
+<div id="zoom" class="infoPanel">
+    <div class="centred">
+        <div>
+            <button id="moveZoomIn" type="button"><img src="images/plus.png"></button>
+        </div>
+        <div>
+            <button id="moveZoomOut" type="button"><img src="images/minus.png"></button>
+        </div>
+    </div>
+</div>
+
+<div id="generalInfo" class="infoPanel">
+    <div>
+        <img src="images/infoOrange.png" data-toggle="modal" data-target="#infoModal">
+    </div>
+</div>
+
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Information</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Use the scale factor to scale the nodes on the map.
+                </p>
+                <p>
+                    Scale labels with the width and height slider
+                </p>
+                <p>
+                    The Year sliders represent a range of years that the nodes are displayed between.
+                </p>
+                <p>
+                    The colour key for the groups is as shown below:-
+                    <img src="images/groupKey.png">
+                </p>
+                <p>
+                    Display the desired map via selecting the appropriate check box.
+                </p>
+                <p>
+                    Camera controls at the bottom right alter the viewing position.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="nodeInformation" class="infoPanel noDisplay">
+    <div>
+        <span id="nodeName"></span>
+    </div>
+    <div>
+        <p id="nodeDescription"></p>
+    </div>
+    <div class="infoMedia">
+        <img id="nodeImage" src="images/imgHolder.jpg">
+        <img id="nodeVideo" src="images/videoHolder.jpg">
+        <video id="videoPlayer" controls class="noDisplay">
+            <source id="videoPlayerSource" src="">
+        </video>
+        <iframe id="videoPlayerFrame" class="noDisplay"
+            src="">
+        </iframe>
+    </div>
+    <div>
+        <button id="nodeInfoOK" type="button">OK</button>
+    </div>
+</div>
+
+<div id="notSupported" class="infoPanel noDisplay">
+    <p>WebGL is currently not supported</p>
+    <p>Try updating to the latest version of Chrome or Firefox</p>
+</div>
+
+</body>
+</html>
