@@ -5,7 +5,10 @@
     margin: 0;
     overflow: hidden;
 }
-
+body {
+    background-color: black;
+    color: #2a6496;
+}
 .noDisplay {
     display: none;
 }
